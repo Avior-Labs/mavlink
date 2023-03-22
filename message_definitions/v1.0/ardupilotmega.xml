@@ -1623,6 +1623,48 @@
       <field type="float" name="rpm1">RPM Sensor1.</field>
       <field type="float" name="rpm2">RPM Sensor2.</field>
     </message>
+    <message id="227" name="HIL_RC_INPUTS_SCALED">
+      <description>Sent from autopilot to simulation. The scaled values of the RC channels received. The standard PPM modulation is as follows: 1000 microseconds: 0%, 2000 microseconds: 100%. Individual receivers/transmitters might violate this specification.</description>
+      <field type="uint32_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
+      <field type="float" name="chan1_raw" units="us">RC channel 1 PWM norm</field>
+      <field type="float" name="chan2_raw" units="us">RC channel 2 PWM norm</field>
+      <field type="float" name="chan3_raw" units="us">RC channel 3 PWM norm</field>
+      <field type="float" name="chan4_raw" units="us">RC channel 4 PWM norm</field>
+      <field type="float" name="chan5_raw" units="us">RC channel 5 PWM norm</field>
+      <field type="float" name="chan6_raw" units="us">RC channel 6 PWM norm</field>
+      <field type="float" name="chan7_raw" units="us">RC channel 7 PWM norm</field>
+      <field type="float" name="chan8_raw" units="us">RC channel 8 PWM norm</field>
+      <field type="float" name="chan9_raw" units="us">RC channel 9 PWM norm</field>
+      <field type="float" name="chan10_raw" units="us">RC channel 10 PWM norm</field>
+      <field type="float" name="chan11_raw" units="us">RC channel 11 PWM norm</field>
+      <field type="float" name="chan12_raw" units="us">RC channel 12 PWM norm</field>
+      <field type="float" name="chan13_raw" units="us">RC channel 13 PWM norm</field>
+      <field type="float" name="chan14_raw" units="us">RC channel 14 PWM norm</field>
+      <field type="float" name="chan15_raw" units="us">RC channel 15 PWM norm</field>
+      <field type="float" name="chan16_raw" units="us">RC channel 16 PWM norm</field>
+      <field type="uint8_t" name="rssi">Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255: invalid/unknown.</field>
+    </message>
+    <message id="228" name="HIL_STATE2">
+      <description>Sent from simulation to autopilot - has airspeed. This packet is useful for high throughput applications such as hardware in the loop simulations.</description>
+      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number.</field>
+      <field type="float" name="roll" units="rad">Roll angle</field>
+      <field type="float" name="pitch" units="rad">Pitch angle</field>
+      <field type="float" name="yaw" units="rad">Yaw angle</field>
+      <field type="float" name="rollspeed" units="rad/s">Body frame roll / phi angular speed</field>
+      <field type="float" name="pitchspeed" units="rad/s">Body frame pitch / theta angular speed</field>
+      <field type="float" name="yawspeed" units="rad/s">Body frame yaw / psi angular speed</field>
+      <field type="int32_t" name="lat" units="degE7">Latitude</field>
+      <field type="int32_t" name="lon" units="degE7">Longitude</field>
+      <field type="int32_t" name="height" units="mm">Height</field>
+      <field type="int16_t" name="vx" units="cm/s">Ground X Speed (Latitude)</field>
+      <field type="int16_t" name="vy" units="cm/s">Ground Y Speed (Longitude)</field>
+      <field type="int16_t" name="vz" units="cm/s">Ground Z Speed (Altitude)</field>
+      <field type="int16_t" name="xacc" units="mG">X acceleration</field>
+      <field type="int16_t" name="yacc" units="mG">Y acceleration</field>
+      <field type="int16_t" name="zacc" units="mG">Z acceleration</field>
+      <field type="int16_t" name="airspeed" units="cm/s">Airspeed</field>
+      <field type="int32_t" name="alt" units="mm">Altitude</field>
+    </message>           
     <!-- ardupilot specific mavlink2 messages starting at 11000-->
     <message id="11000" name="DEVICE_OP_READ">
       <description>Read registers for a device.</description>
